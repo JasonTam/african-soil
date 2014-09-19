@@ -4,16 +4,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 import data_io as dl
 import metrics as m
+import features as f
 from definitions import target_fields
 from sklearn import svm, cross_validation
+import pywt
 
 
 data = dl.get_data('train')
 spectra = data['spectra']
 targets = data['targets']
+x_train_all = f.get_features(data)
 
-clf = svm.SVR(C=8000.0, epsilon=0.15, verbose=2)
-mode = 'validate'
+clfs = {
+    'Ca':   svm.SVR(C=10000.0, verbose=2),
+    'P':    svm.SVR(verbose=2),
+    'pH':   svm.SVR(C=10000.0, verbose=2),
+    'SOC':  svm.SVR(C=10000.0, verbose=2),
+    'Sand': svm.SVR(C=10000.0, verbose=2),
+}
+
+mode = 'cv'
 
 if mode == 'cv':
     k = 10
@@ -22,14 +32,14 @@ if mode == 'cv':
     truth_all = []
     for fold_n, (train_index, test_index) in enumerate(kf):
         print 'Fold', fold_n
-        x_train, x_test = spectra[train_index, :], spectra[test_index, :]
+        x_train, x_test = x_train_all[train_index, :], x_train_all[test_index, :]
         y_train, y_test = targets[train_index, :], targets[test_index, :]
 
         y_pred = np.zeros(y_test.shape)
         for ii, t_name in enumerate(target_fields):
             print t_name
-            clf.fit(x_train, y_train[:, ii])
-            y_pred[:, ii] = clf.predict(x_test).astype(float)
+            clfs[t_name].fit(x_train, y_train[:, ii])
+            y_pred[:, ii] = clfs[t_name].predict(x_test).astype(float)
 
         pred_all.append(y_pred)
         truth_all.append(y_test)
@@ -37,16 +47,21 @@ if mode == 'cv':
     truth_all = np.concatenate(truth_all)
 
     print m.mcrmse(pred_all, truth_all)
+
+
+
 else:
     test = dl.get_data('test')
-    x_test = test['spectra']
+    spectra_test = test['spectra']
+    x_test = np.array([pywt.dwt(s, 'db3')[0] for s in spectra_test])
+    x_test = np.c_[x_test, test['spatial']]
+    x_test = np.c_[x_test, (test['depth']=='Topsoil').astype(float)]
+
     pred = np.zeros([x_test.shape[0], len(target_fields)])
     # Train on all data
     for ii, t_name in enumerate(target_fields):
-        clf.fit(spectra, targets[:, ii])
-        pred[:, ii] = clf.predict(x_test).astype(float)
+        clfs[t_name].fit(x_train_all, targets[:, ii])
+        pred[:, ii] = clfs[t_name].predict(x_test).astype(float)
 
 
-
-
-# preds[:,i] = sup_vec.predict(xtest).astype(float)
+# dl.write_predictions(test['pidn'], pred)

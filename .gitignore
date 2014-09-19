@@ -1,6 +1,7 @@
 data/
 output/
 .idea/
+pred.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
