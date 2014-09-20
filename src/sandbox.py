@@ -7,8 +7,9 @@ import metrics as m
 import features as f
 from definitions import target_fields
 from sklearn import svm, cross_validation
+from sklearn.ensemble import GradientBoostingRegressor
 import pywt
-
+import time
 
 data = dl.get_data('train')
 spectra = data['spectra']
@@ -16,15 +17,20 @@ targets = data['targets']
 x_train_all = f.get_features(data)
 
 clfs = {
-    'Ca':   svm.SVR(C=10000.0, verbose=2),
-    'P':    svm.SVR(verbose=2),
-    'pH':   svm.SVR(C=10000.0, verbose=2),
-    'SOC':  svm.SVR(C=10000.0, verbose=2),
-    'Sand': svm.SVR(C=10000.0, verbose=2),
+    # 'Ca':   svm.SVR(C=10000.0),
+    # 'P':    svm.SVR(C=5000.0),
+    # 'pH':   svm.SVR(C=10000.0),
+    # 'SOC':  svm.SVR(C=10000.0),
+    # 'Sand': svm.SVR(C=10000.0),
+    'Ca':   GradientBoostingRegressor(n_estimators=200),
+    'P':    GradientBoostingRegressor(n_estimators=200),
+    'pH':   GradientBoostingRegressor(n_estimators=200),
+    'SOC':  GradientBoostingRegressor(n_estimators=200),
+    'Sand': GradientBoostingRegressor(n_estimators=200),
 }
 
 mode = 'cv'
-
+tic = time.time()
 if mode == 'cv':
     k = 10
     kf = cross_validation.KFold(targets.shape[0], n_folds=k)
@@ -65,3 +71,6 @@ else:
 
 
 # dl.write_predictions(test['pidn'], pred)
+
+toc = time.time() - tic
+print toc, 'seconds'

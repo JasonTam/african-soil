@@ -17,7 +17,8 @@ def get_features(data):
 
 
 def get_spectra_features(spectra):
-    ret = get_spectr_approx(spectra)
+    # ret = get_spectr_approx(spectra)
+    ret = spectra
     return ret
 
 
