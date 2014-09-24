@@ -1,0 +1,6 @@
+BEST SCORE & PARAMS:
+-0.268713844324
+{'linearregression__normalize': True}
+
+mean: -0.26871, std: 0.28843, params: {'linearregression__normalize': False}
+mean: -0.26871, std: 0.28843, params: {'linearregression__normalize': True}
