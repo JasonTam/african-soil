@@ -3,7 +3,7 @@ __author__ = 'jason'
 import numpy as np
 from sklearn.base import TransformerMixin
 from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.linear_model import LinearRegression
+# from sklearn.linear_model import LinearRegression
 from sklearn import svm
 
 
