@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from definitions import target_fields
 from definitions import spatial_fields
+from collections import namedtuple
 
 filepath, _ = os.path.split(__file__)
 f_folder = os.path.join(filepath, '../data')
@@ -30,22 +31,28 @@ def get_data(mode='train'):
     vals = np.array(vals)
 
     col_inds = {
-        'targets': [fields.index(fn) for fn in target_fields if fn in fields],
-        'spatial': [fields.index(fn) for fn in spatial_fields],
+        'pidn':     [fields.index('PIDN')],
         'spectrum': [ii for ii, fn in enumerate(fields) if fn[0] == 'm'],
-        'pidn': [fields.index('PIDN')],
-        'depth': [fields.index('Depth')],
+        'spatial':  [fields.index(fn) for fn in spatial_fields],
+        'targets':  [fields.index(fn) for fn in target_fields if fn in fields],
+        'depth':    [fields.index('Depth')],
     }
 
     wn = np.array([fields[ii][1:] for ii in col_inds['spectrum']], dtype=float)
 
-    data = {
-        'spectra':  vals[:, col_inds['spectrum']].astype(float),
-        'depth':    vals[:, col_inds['depth']],
-        'pidn':     vals[:, col_inds['pidn']],
-        'spatial':  vals[:, col_inds['spatial']].astype(float),
-        'targets':   vals[:, col_inds['targets']].astype(float),
+    cols = sorted(col_inds.keys())
+    pt = namedtuple('DataPt', cols)
+
+    conv = {
+        'spectrum':     lambda v: v[col_inds['spectrum']].astype(float),
+        'depth':        lambda v: v[col_inds['depth']][0],
+        'pidn':         lambda v: v[col_inds['pidn']][0],
+        'spatial':      lambda v: v[col_inds['spatial']].astype(float),
+        'targets':      lambda v: v[col_inds['targets']].astype(float),
     }
+
+    data = [pt(*[conv[col](v) for col in cols]) for v in vals]
+
     return data
 
 
