@@ -13,6 +13,8 @@ from collections import namedtuple
 filepath, _ = os.path.split(__file__)
 f_folder = os.path.join(filepath, '../data')
 
+cols = sorted(['pidn', 'spectrum', 'spatial', 'targets', 'depth'])
+DataPt = namedtuple('DataPt', cols)
 
 def get_data(mode='train'):
 
@@ -40,9 +42,6 @@ def get_data(mode='train'):
 
     wn = np.array([fields[ii][1:] for ii in col_inds['spectrum']], dtype=float)
 
-    cols = sorted(col_inds.keys())
-    pt = namedtuple('DataPt', cols)
-
     conv = {
         'spectrum':     lambda v: v[col_inds['spectrum']].astype(float),
         'depth':        lambda v: v[col_inds['depth']][0],
@@ -51,7 +50,7 @@ def get_data(mode='train'):
         'targets':      lambda v: v[col_inds['targets']].astype(float),
     }
 
-    data = [pt(*[conv[col](v) for col in cols]) for v in vals]
+    data = [DataPt(*[conv[col](v) for col in cols]) for v in vals]
 
     return data
 

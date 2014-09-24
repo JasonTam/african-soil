@@ -10,13 +10,13 @@ from sklearn import svm
 # Actually, I dont think it's a good idea to combine these in parallel
 # I should just have 5 different pipelines all-together per analyte
 def get_estimators_dict():
-    # return {
-    #     'Ca':   svm.SVR(),
-    #     'P':    svm.SVR(),
-    #     'pH':   svm.SVR(),
-    #     'SOC':  svm.SVR(),
-    #     'Sand': svm.SVR(),
-    # }
+    return {
+        'Ca':   svm.SVR(),
+        'P':    svm.SVR(),
+        'pH':   svm.SVR(),
+        'SOC':  svm.SVR(),
+        'Sand': svm.SVR(),
+    }
     # return {
     #     'Ca':   svm.SVR(C=10000.0),
     #     'P':    svm.SVR(C=10000.0),
@@ -24,10 +24,10 @@ def get_estimators_dict():
     #     'SOC':  svm.SVR(C=10000.0),
     #     'Sand': svm.SVR(C=10000.0),
     # }
-    return {
-        'Ca':   LinearRegression(),
-        'P':    LinearRegression(),
-        'pH':   LinearRegression(),
-        'SOC':  LinearRegression(),
-        'Sand': LinearRegression(),
-    }
+    # return {
+    #     'Ca':   LinearRegression(),
+    #     'P':    LinearRegression(),
+    #     'pH':   LinearRegression(),
+    #     'SOC':  LinearRegression(),
+    #     'Sand': LinearRegression(),
+    # }

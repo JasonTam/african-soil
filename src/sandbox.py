@@ -54,15 +54,15 @@ strat_by = np.array([d.depth for d in data]) == 'Topsoil'
 skf = cross_validation.StratifiedKFold(strat_by, n_folds=k)
 
 ############# GRID SEARCH ################
-# params = {
-#     'svr__C': [1, 5, 50, 200, 1000, 5000, 10000, 15000],
-#     'svr__epsilon': [0.1, 0.5, 1],
-#     'svr__kernel': ['rbf', 'sigmoid', 'poly'],
-# }
-params = {'linearregression__normalize': [False, True]}
+params = {
+    'svr__C': [1, 5, 50, 200, 1000, 5000, 10000, 15000],
+    'svr__epsilon': [0.1, 0.5, 1],
+    'svr__kernel': ['rbf', 'sigmoid', 'poly'],
+}
+# params = {'linearregression__normalize': [False, True]}
 for a in target_fields:
     print '-----------------SEARCHING FOR: ' + a + '-----------------'
-    grid_search = GridSearchCV(pipe_dict[a], params, n_jobs=1, verbose=True)
+    grid_search = GridSearchCV(pipe_dict[a], params, n_jobs=-1, verbose=True)
     grid_search.fit(data, y_d[a])
     m.write_grid_results(grid_search,
                          f_path=os.path.join('diagnostics', a + '.txt'))
