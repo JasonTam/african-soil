@@ -1,6 +1,76 @@
 BEST SCORE & PARAMS:
--0.5272150409
-{'linearregression__normalize': True}
+0.81556129735
+{'svr__epsilon': 0.1, 'svr__C': 5, 'svr__kernel': 'poly'}
 
-mean: -0.52722, std: 1.65419, params: {'linearregression__normalize': False}
-mean: -0.52722, std: 1.65419, params: {'linearregression__normalize': True}
+mean: 0.49174, std: 0.05279, params: {'svr__epsilon': 0.1, 'svr__C': 1, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 1, 'svr__kernel': 'sigmoid'}
+mean: 0.76728, std: 0.08203, params: {'svr__epsilon': 0.1, 'svr__C': 1, 'svr__kernel': 'poly'}
+mean: -0.14360, std: 0.92897, params: {'svr__epsilon': 0.5, 'svr__C': 1, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 1, 'svr__kernel': 'sigmoid'}
+mean: 0.60067, std: 0.29117, params: {'svr__epsilon': 0.5, 'svr__C': 1, 'svr__kernel': 'poly'}
+mean: -1.69269, std: 2.72610, params: {'svr__epsilon': 1, 'svr__C': 1, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 1, 'svr__kernel': 'sigmoid'}
+mean: -0.18431, std: 1.26049, params: {'svr__epsilon': 1, 'svr__C': 1, 'svr__kernel': 'poly'}
+mean: 0.62140, std: 0.15217, params: {'svr__epsilon': 0.1, 'svr__C': 5, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 5, 'svr__kernel': 'sigmoid'}
+mean: 0.81556, std: 0.08848, params: {'svr__epsilon': 0.1, 'svr__C': 5, 'svr__kernel': 'poly'}
+mean: -0.18409, std: 1.23469, params: {'svr__epsilon': 0.5, 'svr__C': 5, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 5, 'svr__kernel': 'sigmoid'}
+mean: 0.61442, std: 0.24719, params: {'svr__epsilon': 0.5, 'svr__C': 5, 'svr__kernel': 'poly'}
+mean: -1.59222, std: 3.02219, params: {'svr__epsilon': 1, 'svr__C': 5, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 5, 'svr__kernel': 'sigmoid'}
+mean: -0.06674, std: 0.97826, params: {'svr__epsilon': 1, 'svr__C': 5, 'svr__kernel': 'poly'}
+mean: 0.67017, std: 0.23607, params: {'svr__epsilon': 0.1, 'svr__C': 50, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 50, 'svr__kernel': 'sigmoid'}
+mean: 0.73431, std: 0.13380, params: {'svr__epsilon': 0.1, 'svr__C': 50, 'svr__kernel': 'poly'}
+mean: -0.03626, std: 1.06789, params: {'svr__epsilon': 0.5, 'svr__C': 50, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 50, 'svr__kernel': 'sigmoid'}
+mean: 0.41917, std: 0.39256, params: {'svr__epsilon': 0.5, 'svr__C': 50, 'svr__kernel': 'poly'}
+mean: -0.23877, std: 1.26825, params: {'svr__epsilon': 1, 'svr__C': 50, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 50, 'svr__kernel': 'sigmoid'}
+mean: -0.29000, std: 1.07315, params: {'svr__epsilon': 1, 'svr__C': 50, 'svr__kernel': 'poly'}
+mean: 0.60746, std: 0.29275, params: {'svr__epsilon': 0.1, 'svr__C': 200, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 200, 'svr__kernel': 'sigmoid'}
+mean: 0.53467, std: 0.37859, params: {'svr__epsilon': 0.1, 'svr__C': 200, 'svr__kernel': 'poly'}
+mean: 0.03233, std: 0.86563, params: {'svr__epsilon': 0.5, 'svr__C': 200, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 200, 'svr__kernel': 'sigmoid'}
+mean: 0.25969, std: 0.53552, params: {'svr__epsilon': 0.5, 'svr__C': 200, 'svr__kernel': 'poly'}
+mean: -0.65020, std: 1.70418, params: {'svr__epsilon': 1, 'svr__C': 200, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 200, 'svr__kernel': 'sigmoid'}
+mean: -0.19486, std: 0.90740, params: {'svr__epsilon': 1, 'svr__C': 200, 'svr__kernel': 'poly'}
+mean: 0.39949, std: 0.50305, params: {'svr__epsilon': 0.1, 'svr__C': 1000, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 1000, 'svr__kernel': 'sigmoid'}
+mean: 0.25788, std: 0.63888, params: {'svr__epsilon': 0.1, 'svr__C': 1000, 'svr__kernel': 'poly'}
+mean: -0.61172, std: 1.55853, params: {'svr__epsilon': 0.5, 'svr__C': 1000, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 1000, 'svr__kernel': 'sigmoid'}
+mean: -0.17455, std: 0.90917, params: {'svr__epsilon': 0.5, 'svr__C': 1000, 'svr__kernel': 'poly'}
+mean: -1.14843, std: 2.22242, params: {'svr__epsilon': 1, 'svr__C': 1000, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 1000, 'svr__kernel': 'sigmoid'}
+mean: -0.19486, std: 0.90740, params: {'svr__epsilon': 1, 'svr__C': 1000, 'svr__kernel': 'poly'}
+mean: 0.14530, std: 0.85922, params: {'svr__epsilon': 0.1, 'svr__C': 5000, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 5000, 'svr__kernel': 'sigmoid'}
+mean: -6.67410, std: 7.33745, params: {'svr__epsilon': 0.1, 'svr__C': 5000, 'svr__kernel': 'poly'}
+mean: -1.34578, std: 2.42543, params: {'svr__epsilon': 0.5, 'svr__C': 5000, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 5000, 'svr__kernel': 'sigmoid'}
+mean: -0.31923, std: 1.09900, params: {'svr__epsilon': 0.5, 'svr__C': 5000, 'svr__kernel': 'poly'}
+mean: -1.14843, std: 2.22242, params: {'svr__epsilon': 1, 'svr__C': 5000, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 5000, 'svr__kernel': 'sigmoid'}
+mean: -0.19486, std: 0.90740, params: {'svr__epsilon': 1, 'svr__C': 5000, 'svr__kernel': 'poly'}
+mean: -0.08482, std: 1.13574, params: {'svr__epsilon': 0.1, 'svr__C': 10000, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 10000, 'svr__kernel': 'sigmoid'}
+mean: -31.49001, std: 27.68652, params: {'svr__epsilon': 0.1, 'svr__C': 10000, 'svr__kernel': 'poly'}
+mean: -1.39431, std: 2.49466, params: {'svr__epsilon': 0.5, 'svr__C': 10000, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 10000, 'svr__kernel': 'sigmoid'}
+mean: -0.31923, std: 1.09900, params: {'svr__epsilon': 0.5, 'svr__C': 10000, 'svr__kernel': 'poly'}
+mean: -1.14843, std: 2.22242, params: {'svr__epsilon': 1, 'svr__C': 10000, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 10000, 'svr__kernel': 'sigmoid'}
+mean: -0.19486, std: 0.90740, params: {'svr__epsilon': 1, 'svr__C': 10000, 'svr__kernel': 'poly'}
+mean: -0.11407, std: 1.18452, params: {'svr__epsilon': 0.1, 'svr__C': 15000, 'svr__kernel': 'rbf'}
+mean: -0.10565, std: 0.08964, params: {'svr__epsilon': 0.1, 'svr__C': 15000, 'svr__kernel': 'sigmoid'}
+mean: -86.36750, std: 78.18332, params: {'svr__epsilon': 0.1, 'svr__C': 15000, 'svr__kernel': 'poly'}
+mean: -1.39431, std: 2.49466, params: {'svr__epsilon': 0.5, 'svr__C': 15000, 'svr__kernel': 'rbf'}
+mean: -0.16131, std: 0.20827, params: {'svr__epsilon': 0.5, 'svr__C': 15000, 'svr__kernel': 'sigmoid'}
+mean: -0.31923, std: 1.09900, params: {'svr__epsilon': 0.5, 'svr__C': 15000, 'svr__kernel': 'poly'}
+mean: -1.14843, std: 2.22242, params: {'svr__epsilon': 1, 'svr__C': 15000, 'svr__kernel': 'rbf'}
+mean: -1.11054, std: 1.45619, params: {'svr__epsilon': 1, 'svr__C': 15000, 'svr__kernel': 'sigmoid'}
+mean: -0.19486, std: 0.90740, params: {'svr__epsilon': 1, 'svr__C': 15000, 'svr__kernel': 'poly'}

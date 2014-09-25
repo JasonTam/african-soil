@@ -60,11 +60,12 @@ params = {
     'svr__kernel': ['rbf', 'sigmoid', 'poly'],
 }
 # params = {'linearregression__normalize': [False, True]}
+g_dict = {}
 for a in target_fields:
     print '-----------------SEARCHING FOR: ' + a + '-----------------'
-    grid_search = GridSearchCV(pipe_dict[a], params, n_jobs=-1, verbose=True)
-    grid_search.fit(data, y_d[a])
-    m.write_grid_results(grid_search,
+    grid_search[a] = GridSearchCV(pipe_dict[a], params, n_jobs=-1, verbose=True)
+    grid_search[a].fit(data, y_d[a])
+    m.write_grid_results(grid_search[a],
                          f_path=os.path.join('diagnostics', a + '.txt'))
 
 ####### DEBUG TEST VERSION
