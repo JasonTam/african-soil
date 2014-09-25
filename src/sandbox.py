@@ -60,7 +60,7 @@ params = {
     'svr__kernel': ['rbf', 'sigmoid', 'poly'],
 }
 # params = {'linearregression__normalize': [False, True]}
-g_dict = {}
+grid_search = {}
 for a in target_fields:
     print '-----------------SEARCHING FOR: ' + a + '-----------------'
     grid_search[a] = GridSearchCV(pipe_dict[a], params, n_jobs=-1, verbose=True)
