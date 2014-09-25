@@ -65,6 +65,8 @@ for a in target_fields:
     print '-----------------SEARCHING FOR: ' + a + '-----------------'
     grid_search[a] = GridSearchCV(pipe_dict[a], params, n_jobs=-1, verbose=True)
     grid_search[a].fit(data, y_d[a])
+
+for a in target_fields:
     m.write_grid_results(grid_search[a],
                          f_path=os.path.join('diagnostics', a + '.txt'))
 
